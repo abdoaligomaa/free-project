@@ -1,0 +1,17 @@
+build/*
+database.sqlite
+node_modules
+ncp-debug.log
+npm-debug.log
+.idea
+src/config.js
+.DS_Store
+.env
+.env.production
+db/config/config.json
+src/static/images/*
+/images/*
+dist/
+yarn-error.log
+# Sentry Auth Token
+.sentryclirc

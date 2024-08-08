@@ -1,0 +1,22 @@
+image: atlassian/default-image:latest
+
+definitions:
+  steps:
+    - step: &Deploy-to-env
+        name: deploy
+        script:
+          - pipe: atlassian/ssh-run:0.3.1
+            variables:
+              SSH_USER: '$ssh_user'
+              SERVER: '$server_domain'
+              PORT: '$server_port'
+              COMMAND: 'cd $server_path && git fetch && git reset --hard $BITBUCKET_COMMIT && npm install --legacy-peer-deps  && export SENTRY_AUTH_TOKEN=$sentry_auth_token && npm run build; pm2 stop $pm_name; pm2 delete $pm_name; PORT=$nuxt_port pm2 start --name $pm_name "npm run start"'
+              MODE: 'command'
+
+pipelines:
+  branches:
+    main:
+      - step:
+          <<: *Deploy-to-env
+          name: deploy to test environment
+          deployment: test

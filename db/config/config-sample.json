@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "abdo",
+    "database": "rentall_v_3_2",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "abdo",
+    "database": "rentall_v_3_2",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+   "username": "root",
+    "password": "abdo",
+    "database": "rentall_v_3_2",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
